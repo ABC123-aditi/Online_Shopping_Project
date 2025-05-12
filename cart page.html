@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ShopEase | Online Shopping</title>
+  <link rel="stylesheet" href="aaa3.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <img src="logo.jpg" alt="ShopEase Logo" />
+      <span>ShopEase</span>
+    </div>
+    <nav class="nav-links">
+      <a href="./aaa3.html">Home</a>
+      <a href="./proj.html">Product</a>
+      <a href="./about.html">About</a>
+      <a href="./contact.html">Contact</a>
+      <a href="./cart page.html">Cart</a>
+    </nav>
+  </header>
+
+    <main>
+        <section class="cart-content">
+            <h2>Your Cart</h2>
+             
+                <!-- More cart items can be added dynamically with JavaScript -->
+            </div>
+
+            <div class="cart-summary">
+                <h3>Cart Summary</h3>
+                <p id="totalPrice">Total: $50.00</p>
+                <button class="checkout">Checkout</button>
+            </div>
+        </section>
+    </main>
+<style>
+    /* Reset some basic styling */
+ 
+    
+
+/* Main content section */
+main {
+    padding: 20px;
+}
+
+/* Product section styles */
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.product {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 300px;
+    overflow: hidden;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product h2 {
+    font-size: 1.5rem;
+    margin: 15px 0;
+}
+
+.product p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.product button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.product button:hover {
+    background-color: #f2a900;
+}
+
+/* Responsive Design for different screen sizes */
+@media (min-width: 768px) {
+    .product {
+        width: 48%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .product {
+        width: 30%;
+    }
+}
+/* Cart Page Styles */
+.cart-content {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cart-content h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+}
+
+.cart-item img {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.cart-item-details {
+    flex-grow: 1;
+    margin-left: 20px;
+}
+
+.cart-item h3 {
+    font-size: 1.5rem;
+}
+
+.cart-item p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.cart-item input[type="number"] {
+    width: 50px;
+    padding: 5px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.cart-item .remove-item {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.cart-item .remove-item:hover {
+    background-color: #ff1a1a;
+}
+
+.cart-summary {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cart-summary h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.cart-summary p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.cart-summary .checkout {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.cart-summary .checkout:hover {
+    background-color: #f2a900;
+}
+
+/* Responsive Design for Cart Page */
+@media (min-width: 768px) {
+    .cart-item {
+        flex-direction: row;
+    }
+
+    .cart-item-details {
+        flex-grow: 2;
+    }
+
+    .cart-summary {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+</style>
+<script>
+  // Load and display cart items from localStorage
+  function loadCart() {
+    const cartItemsContainer = document.querySelector('.cart-items');
+    const cartSummary = document.querySelector('#totalPrice');
+    cartItemsContainer.innerHTML = ''; // Clear static items
+
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let total = 0;
+
+    cart.forEach((item, index) => {
+      total += item.price * item.quantity;
+
+      const cartItem = document.createElement('div');
+      cartItem.classList.add('cart-item');
+
+      cartItem.innerHTML = `
+        <img src="placeholder.jpg" alt="${item.name}"> <!-- Replace with dynamic image logic if available -->
+        <div class="cart-item-details">
+          <h3>${item.name}</h3>
+          <p>$${item.price.toFixed(2)}</p>
+          <label for="quantity${index}">Quantity:</label>
+          <input type="number" id="quantity${index}" value="${item.quantity}" min="1" max="10" data-index="${index}" class="quantity-input">
+        </div>
+        <button class="remove-item" data-index="${index}">Remove</button>
+      `;
+      cartItemsContainer.appendChild(cartItem);
+    });
+
+    cartSummary.textContent = `Total: $${total.toFixed(2)}`;
+  }
+
+  // Update quantity
+  document.addEventListener('change', function(e) {
+    if (e.target.classList.contains('quantity-input')) {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const index = parseInt(e.target.getAttribute('data-index'));
+      cart[index].quantity = parseInt(e.target.value);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      loadCart();
+    }
+  });
+
+  // Remove item
+  document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('remove-item')) {
+      const index = parseInt(e.target.getAttribute('data-index'));
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      loadCart();
+    }
+  });
+
+  // Load cart on page load
+  document.addEventListener('DOMContentLoaded', loadCart);
+</script>
+
+
+
+</body>
+</html>

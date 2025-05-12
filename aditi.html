@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registeration</title>
+  <link rel="stylesheet" href="./aditi.css">
+  <script src=".\aditi.js"></script>
+</head>
+<body>
+      <div class="container">
+          <h1>Register</h1>
+          <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" required>
+          </div>
+          <div class="form-group">
+            <label for="contact number">Contact Number</label>
+            <input type="text" id="contact number" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" id="email" required>
+      </div>
+          <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" required>
+              <div class="alert" id="password-alert"></div>
+          </div>
+          <div class="form-group">
+            <label for="password">Confirm Password</label>
+            <input type="text" id="name" required>
+        </div>
+          <div class="form-group">
+              <button type="button" onclick="validateForm()" onclick="document.location='./final.html'">Register</button>
+          </div>
+      </div>
+      <div class="container signin">
+        <p>Already have an account? <a href="./final.html">Sign in</a>.</p>
+      </div>
+  </body>
+  </html>

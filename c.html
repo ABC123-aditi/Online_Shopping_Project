@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            padding: 20px;
+        }
+        .product-image {
+            max-width: 100%;
+            height: auto;
+        }
+        .product-details {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .product-info {
+            flex: 1;
+            padding: 20px;
+        }
+        .product-info h2 {
+            margin-top: 0;
+        }
+        .product-actions {
+            margin-top: 20px;
+        }
+        .product-actions select, .product-actions input {
+            margin-bottom: 10px;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="aaa3.html">Home</a>
+        <a href="proj.html">product</a>
+
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart page.html">Cart</a>
+
+    </div>
+
+    <div class="container">
+        <div class="product-details">
+            <div class="product-image">
+                <img src="c1.jpeg" alt="Product Image">
+            </div>
+            <div class="product-info">
+                <h2>Black purse</h2>
+                <h3>product details</h3>
+                <p>Shoulder Bag: Designed to be worn over the shoulder, these bags come in various sizes and are suitable for everyday use.
+                <h4>$800</h4>
+
+                <div class="product-actions">
+                    <label for="size">Size:</label>
+                    <select id="size" name="size">
+                        <option value="XS">XS</option>
+
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                        <option value="XL">XL</option>
+
+                    </select>
+                    <br>
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" value="1" min="1">
+                    <br>
+                    <button class="btn" onclick="addToCart()">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function addToCart() {
+            var size = document.getElementById('size').value;
+            var quantity = document.getElementById('quantity').value;
+            alert('Added to cart: Size - ' + size + ', Quantity - ' + quantity);
+        }
+    </script>
+
+</body>
+</html>
