@@ -1,1 +1,1 @@
-# Online_Shopping_Project
+Built a shopping website using HTML, CSS, JavaScript, PHP, and MySQL. Implemented user registration with data stored in a database. Added dynamic “Add to Cart” functionality and separate pages for products, cart, and contact.
